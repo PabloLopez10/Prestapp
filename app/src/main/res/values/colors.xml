@@ -7,4 +7,6 @@
     <color name="colorButton">#3F879D</color>
     <color name="colorTextButton">#FFFFFF</color>>
     <color name="colorTextField">#F3FBFD</color>>
+    <color name="colorBar">#9CD5E2</color>>
+    <color name="colorTitle">#000000</color>>
 </resources>
