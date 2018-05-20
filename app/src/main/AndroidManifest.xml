@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Registro" />
+        <activity android:name=".NuevoPrestamo"></activity>
     </application>
 
 </manifest>
