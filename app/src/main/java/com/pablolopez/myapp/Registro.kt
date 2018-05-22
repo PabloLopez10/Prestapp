@@ -10,7 +10,9 @@ class Registro : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
 
-        val txtRes : TextView = findViewById(R.id.titulo)
-        txtRes.setText("PRESTAPP")
+
+
+        val txtRes : TextView = findViewById(R.id.textView2)
+        txtRes.setText("Crear Cuenta")
     }
 }

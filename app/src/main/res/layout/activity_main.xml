@@ -64,8 +64,8 @@
 
     <TextView
         android:id="@+id/Recordar"
-        android:layout_width="163dp"
-        android:layout_height="39dp"
+        android:layout_width="137dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -73,10 +73,10 @@
         android:text="Recordar Contraseña"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/Contraseña"
-        app:layout_constraintHorizontal_bias="0.96"
+        app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="@+id/Contraseña"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.595" />
+        app:layout_constraintVertical_bias="0.592" />
 
     <Button
         android:id="@+id/Inicio_sesion"
@@ -130,17 +130,17 @@
 
     <CheckBox
         android:id="@+id/checkBox"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
+        android:layout_width="26dp"
+        android:layout_height="23dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintHorizontal_bias="0.864"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.574" />
+        app:layout_constraintVertical_bias="0.575" />
 
 </android.support.constraint.ConstraintLayout>
