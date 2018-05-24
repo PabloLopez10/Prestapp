@@ -24,7 +24,7 @@ class Inicio : AppCompatActivity() {
         setSupportActionBar(toolbarInicio)
 
         toolbarInicio.setTitle("PRESTAPP")
-        toolbarInicio.setTitleMargin(415,0,0,0)
+        toolbarInicio.setTitleMargin(410,0,0,0)
         toolbarInicio.setTitleTextColor(Color.WHITE)
 
         fab.setOnClickListener { view ->
@@ -37,14 +37,20 @@ class Inicio : AppCompatActivity() {
 
         lista_notificaciones.setOnItemClickListener { adapterView, view, i, l ->
             val intent = Intent(this, Notificacion::class.java)
-            intent.putExtra("Descripcion",lista_notificaciones.getItemAtPosition(i).toString())
+            intent.putExtra("Nombre",lista_notificaciones.getItemAtPosition(i).toString())
+            intent.putExtra("Tipo",lista_notificaciones.getItemAtPosition(i).toString())
             startActivity(intent)
         }
     }
     private class CustomAdapter(): BaseAdapter(){
         private val names = arrayListOf<String>(
-                "Notificacion 1","Notificacion 2","Notificacion 3","Notificacion 4","Notificacion 5","Notificacion 6","Notificacion 7",
-                "Notificacion 8","Notificacion 9","Notificacion 10","Notificacion 11"
+                "Prestamo 1","Prestamo 2","Prestamo 3","Prestamo 4","Prestamo 5","Prestamo 6","Prestamo 7",
+                "Prestamo 8","Prestamo 9","Prestamo 10","Prestamo 11","Prestamo 12"
+        )
+
+        private val tipos = arrayListOf<String>(
+                "Deuda","Prestamo","Deuda","Prestamo","Deuda","Prestamo","Deuda","Prestamo","Deuda","Prestamo",
+                "Deuda","Prestamo"
         )
 
         override fun getCount(): Int {
@@ -58,6 +64,7 @@ class Inicio : AppCompatActivity() {
         override fun getItem(position:Int): Any{
             return names.get(position)
         }
+
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
             val rowMain: View
@@ -76,7 +83,7 @@ class Inicio : AppCompatActivity() {
             }
 
             val viewHolder = rowMain.tag as ViewHolder
-            viewHolder.nameTextView.text = "Tipo"
+            viewHolder.nameTextView.text = tipos.get(position)
             viewHolder.positionText.text = names.get(position)
 
             return rowMain

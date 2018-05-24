@@ -16,7 +16,7 @@ class Verificar : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbarVerificar))
 
         toolbarVerificar.setTitle("PRESTAPP")
-        toolbarVerificar.setTitleMargin(415,0,0,0)
+        toolbarVerificar.setTitleMargin(410,0,0,0)
         toolbarVerificar.setTitleTextColor(Color.WHITE)
 
         val botonRechazar = findViewById<Button>(R.id.buttonRechazar)

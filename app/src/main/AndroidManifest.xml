@@ -17,13 +17,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Registro"/>
+        <activity android:name=".Registro"
+            android:parentActivityName="com.pablolopez.myapp.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pablolopez.myapp.MainActivity" />
+        </activity>
         <activity
             android:name=".Inicio"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Notificacion" />
-        <activity android:name=".NuevoPrestamo" />
+        <activity android:name=".Notificacion"
+            android:parentActivityName="com.pablolopez.myapp.Inicio">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pablolopez.myapp.Inicio" />
+        </activity>
+        <activity android:name=".NuevoPrestamo"
+            android:parentActivityName="com.pablolopez.myapp.Inicio">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pablolopez.myapp.Inicio" />
+        </activity>
         <activity android:name=".Verificar"></activity>
     </application>
 

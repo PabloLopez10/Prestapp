@@ -14,9 +14,10 @@ class NuevoPrestamo : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nuevo_prestamo)
         setSupportActionBar(findViewById(R.id.toolbarNuevo))
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         toolbarNuevo.setTitle("PRESTAPP")
-        toolbarNuevo.setTitleMargin(415,0,0,0)
+        toolbarNuevo.setTitleMargin(250,0,0,0)
         toolbarNuevo.setTitleTextColor(Color.WHITE)
 
         val botonNPrestamo = findViewById<Button>(R.id.button2)
