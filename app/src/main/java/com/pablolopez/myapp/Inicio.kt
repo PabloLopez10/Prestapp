@@ -1,6 +1,7 @@
 package com.pablolopez.myapp
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
@@ -10,17 +11,24 @@ import android.view.ViewGroup
 import android.widget.*
 
 import kotlinx.android.synthetic.main.activity_inicio.*
+import kotlinx.android.synthetic.main.activity_registro.*
 import kotlinx.android.synthetic.main.content_inicio.*
 
 class Inicio : AppCompatActivity() {
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inicio)
-        setSupportActionBar(toolbar)
+        setSupportActionBar(toolbarInicio)
+
+        toolbarInicio.setTitle("PRESTAPP")
+        toolbarInicio.setTitleMargin(415,0,0,0)
+        toolbarInicio.setTitleTextColor(Color.WHITE)
 
         fab.setOnClickListener { view ->
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this,NuevoPrestamo::class.java)
             startActivity(intent)
         }
 
@@ -29,12 +37,14 @@ class Inicio : AppCompatActivity() {
 
         lista_notificaciones.setOnItemClickListener { adapterView, view, i, l ->
             val intent = Intent(this, Notificacion::class.java)
+            intent.putExtra("Descripcion",lista_notificaciones.getItemAtPosition(i).toString())
             startActivity(intent)
         }
     }
     private class CustomAdapter(): BaseAdapter(){
         private val names = arrayListOf<String>(
-                "Diego","Mula","Que","Carrito","Te","Estoy","Haciendo"
+                "Notificacion 1","Notificacion 2","Notificacion 3","Notificacion 4","Notificacion 5","Notificacion 6","Notificacion 7",
+                "Notificacion 8","Notificacion 9","Notificacion 10","Notificacion 11"
         )
 
         override fun getCount(): Int {
@@ -46,7 +56,7 @@ class Inicio : AppCompatActivity() {
         }
 
         override fun getItem(position:Int): Any{
-            return "Test String"
+            return names.get(position)
         }
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {

@@ -6,22 +6,14 @@
     android:layout_height="match_parent"
     tools:context="com.pablolopez.myapp.Inicio">
 
-    <android.support.design.widget.AppBarLayout
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarInicio"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:textAlignment="center"
-            android:background="@color/colorBackground"
-            android:elevation="0dp"
-            android:minHeight="250dp"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorButton"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
     <include layout="@layout/content_inicio" />
 
@@ -31,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:tint="@color/colorBar"
+        android:tint="#FFFFFF"
         app:backgroundTint="@color/colorButton"
         app:srcCompat="@android:drawable/ic_input_add" />
 
