@@ -1,5 +1,6 @@
 package com.pablolopez.myapp
 
+import SaveArrayListToSD
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -14,14 +15,25 @@ import kotlinx.android.synthetic.main.activity_inicio.*
 import kotlinx.android.synthetic.main.activity_registro.*
 import kotlinx.android.synthetic.main.content_inicio.*
 
-class Inicio : AppCompatActivity() {
+
+class Inicio() : AppCompatActivity() {
 
 
+    var listPrestamo = ReadArrayListFromSD(this, "prestamos")
+    var listDescripcion = ReadArrayListFromSD(this, "descripciones")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inicio)
         setSupportActionBar(toolbarInicio)
+
+
+        listPrestamo.add(intent.getStringExtra("PRESTAMO"))
+        listDescripcion.add(intent.getStringExtra("DESCRIPCION"))
+        SaveArrayListToSD(this, "prestamos", listPrestamo)
+        SaveArrayListToSD(this,"descripciones",listDescripcion)
+
+
 
         toolbarInicio.setTitle("PRESTAPP")
         toolbarInicio.setTitleMargin(410,0,0,0)
@@ -33,25 +45,21 @@ class Inicio : AppCompatActivity() {
         }
 
         val lista_notificaciones = findViewById<ListView>(R.id.notificaciones)
-        lista_notificaciones.adapter = Inicio.CustomAdapter()
+        lista_notificaciones.adapter = Inicio.CustomAdapter(listDescripcion,listPrestamo)
 
         lista_notificaciones.setOnItemClickListener { adapterView, view, i, l ->
             val intent = Intent(this, Notificacion::class.java)
-            intent.putExtra("Nombre",lista_notificaciones.getItemAtPosition(i).toString())
+            intent.putExtra("Nombre","Descripcion de Prestamo")
             intent.putExtra("Tipo",lista_notificaciones.getItemAtPosition(i).toString())
             startActivity(intent)
         }
     }
-    private class CustomAdapter(): BaseAdapter(){
-        private val names = arrayListOf<String>(
-                "Prestamo 1","Prestamo 2","Prestamo 3","Prestamo 4","Prestamo 5","Prestamo 6","Prestamo 7",
-                "Prestamo 8","Prestamo 9","Prestamo 10","Prestamo 11","Prestamo 12"
-        )
+    private class CustomAdapter(nList: ArrayList<String>, tList : ArrayList<String>): BaseAdapter(){
 
-        private val tipos = arrayListOf<String>(
-                "Deuda","Prestamo","Deuda","Prestamo","Deuda","Prestamo","Deuda","Prestamo","Deuda","Prestamo",
-                "Deuda","Prestamo"
-        )
+        private val names = nList
+
+        private var tipos = tList
+
 
         override fun getCount(): Int {
             return names.size

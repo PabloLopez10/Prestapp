@@ -19,8 +19,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
+
         val usuario:EditText = findViewById(R.id.Correo)
         val contra:EditText = findViewById(R.id.Contraseña)
+
+
+
         val listUsuarios = arrayListOf<String>(
                 "pj9lopez@hotmail.com","lop14509@uvg.edu.gt"
         )
