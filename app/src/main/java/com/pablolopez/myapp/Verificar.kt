@@ -21,6 +21,7 @@ class Verificar : AppCompatActivity() {
 
         val contractText = intent.getStringExtra("STRING_PASS")
         val prestamoType = intent.getStringExtra("STRING_TYPE")
+        val notiShowtoPass = intent.getStringExtra("STRING_NOTI")
 
         contrato.setText(contractText)
         toolbarVerificar.setTitle("PRESTAPP")
@@ -40,6 +41,7 @@ class Verificar : AppCompatActivity() {
             val intent = Intent(this,Inicio::class.java)
             intent.putExtra("PRESTAMO", prestamoType)
             intent.putExtra("DESCRIPCION", contractText)
+            intent.putExtra("SHOW", notiShowtoPass)
             startActivity(intent)
 
         }

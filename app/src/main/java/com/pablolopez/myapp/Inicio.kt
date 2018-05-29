@@ -29,7 +29,7 @@ class Inicio() : AppCompatActivity() {
 
 
         listPrestamo.add(intent.getStringExtra("PRESTAMO"))
-        listDescripcion.add(intent.getStringExtra("DESCRIPCION"))
+        listDescripcion.add(intent.getStringExtra("SHOW"))
         SaveArrayListToSD(this, "prestamos", listPrestamo)
         SaveArrayListToSD(this,"descripciones",listDescripcion)
 
@@ -41,6 +41,11 @@ class Inicio() : AppCompatActivity() {
 
         fab.setOnClickListener { view ->
             val intent = Intent(this,NuevoPrestamo::class.java)
+            startActivity(intent)
+        }
+
+        fab2.setOnClickListener { view ->
+            val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
 

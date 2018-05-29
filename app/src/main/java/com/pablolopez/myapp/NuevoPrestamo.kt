@@ -32,6 +32,7 @@ class NuevoPrestamo : AppCompatActivity() {
     val myCalendar = Calendar.getInstance()
 
     public var stringtoPass = String();
+    public var notiShowtoPass = String();
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -123,10 +124,13 @@ class NuevoPrestamo : AppCompatActivity() {
 
 
             stringtoPass = "$stringTipo a $owner: \nCantidad:  Q $quant\nCon interes $interT de % $inter. \nEste pago se debe realizar a mas tardar el $dateE. \nLos recordatorios se haran $rInter, empezando desde el $dateR"
+            notiShowtoPass = "$stringTipo de: Q$quant. a $owner"
+
 
             val intent = Intent(this,Verificar::class.java)
             intent.putExtra("STRING_PASS", stringtoPass)
             intent.putExtra("STRING_TYPE", stringTipo)
+            intent.putExtra("STRING_NOTI", notiShowtoPass)
             startActivity(intent)
 
         }
