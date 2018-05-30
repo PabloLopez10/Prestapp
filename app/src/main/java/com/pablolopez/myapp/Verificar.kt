@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_nuevo_prestamo.*
 import kotlinx.android.synthetic.main.activity_verificar.*
 
@@ -39,11 +41,18 @@ class Verificar : AppCompatActivity() {
 
 
             val intent = Intent(this,Inicio::class.java)
-            intent.putExtra("PRESTAMO", prestamoType)
-            intent.putExtra("DESCRIPCION", contractText)
-            intent.putExtra("SHOW", notiShowtoPass)
+            guardarPrestamo(prestamoType,contractText,notiShowtoPass)
             startActivity(intent)
 
+        }
+    }
+
+    private fun guardarPrestamo(pt:String,ct:String, noti:String) {
+        val ref = FirebaseDatabase.getInstance().getReference("Prestamo")
+        val prestamoId = ref.push().key
+        val prestamo = Prestamo(prestamoId, pt , ct, noti)
+        ref.child(prestamoId).setValue(prestamo).addOnCompleteListener {
+            Toast.makeText(applicationContext, "Prestamo creado con exito", Toast.LENGTH_LONG).show()
         }
     }
 }

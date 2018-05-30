@@ -191,7 +191,7 @@ class Registro : AppCompatActivity() {
         val ref = FirebaseDatabase.getInstance().getReference("Usuarios")
         val usuarioId = ref.push().key
         val usuario = User(usuarioId, editText3.getText().toString() , editText4.getText().toString(), editText5.getText().toString(), editText6.getText().toString())
-        ref.child(usuarioId).setValue(usuario).addOnCompleteListener {
+        ref.child(editText3.getText().toString()).setValue(usuario).addOnCompleteListener {
         Toast.makeText(applicationContext, "Usuario creado con exito", Toast.LENGTH_LONG).show()
         }
     }

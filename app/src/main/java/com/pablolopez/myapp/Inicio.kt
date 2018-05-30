@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.google.firebase.database.*
 
 import kotlinx.android.synthetic.main.activity_inicio.*
 import kotlinx.android.synthetic.main.activity_registro.*
@@ -18,20 +19,46 @@ import kotlinx.android.synthetic.main.content_inicio.*
 
 class Inicio() : AppCompatActivity() {
 
+    lateinit var ref: DatabaseReference
 
-    var listPrestamo = ReadArrayListFromSD(this, "prestamos")
-    var listDescripcion = ReadArrayListFromSD(this, "descripciones")
+    var listPrestamo2 = arrayListOf<String>(
+            "Deuda","Prestamo","Deuda"
+    )
+    var listDescripcion2 = arrayListOf<String>(
+            "123","456","789"
+    )
+
+    var listPrestamo = arrayListOf<String>()
+    var listDescripcion = arrayListOf<String>()
+    var listShort = arrayListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inicio)
         setSupportActionBar(toolbarInicio)
 
+        ref = FirebaseDatabase.getInstance().getReference("Prestamo")
 
-        listPrestamo.add(intent.getStringExtra("PRESTAMO"))
-        listDescripcion.add(intent.getStringExtra("SHOW"))
-        SaveArrayListToSD(this, "prestamos", listPrestamo)
-        SaveArrayListToSD(this,"descripciones",listDescripcion)
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError?) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onDataChange(p0: DataSnapshot?) {
+                if(p0!! .exists()){
+                    for(h in p0.children){
+                        val nom = h.getValue(Prestamo :: class.java)!!.nombre
+                        val descr = h.getValue(Prestamo :: class.java)!!.descripcion
+                        val notishow = h.getValue(Prestamo :: class.java)!!.short
+                        listPrestamo.add(nom)
+                        listDescripcion.add(descr)
+                        listShort.add(notishow)
+                    }
+
+                }
+            }
+
+        })
 
 
 
@@ -50,11 +77,11 @@ class Inicio() : AppCompatActivity() {
         }
 
         val lista_notificaciones = findViewById<ListView>(R.id.notificaciones)
-        lista_notificaciones.adapter = Inicio.CustomAdapter(listDescripcion,listPrestamo)
+        lista_notificaciones.adapter = Inicio.CustomAdapter(listDescripcion2,listPrestamo2)
 
         lista_notificaciones.setOnItemClickListener { adapterView, view, i, l ->
             val intent = Intent(this, Notificacion::class.java)
-            intent.putExtra("Nombre","Descripcion de Prestamo")
+            intent.putExtra("Nombre",intent.getStringExtra("DESCRIPCION"))
             intent.putExtra("Tipo",lista_notificaciones.getItemAtPosition(i).toString())
             startActivity(intent)
         }
@@ -62,7 +89,6 @@ class Inicio() : AppCompatActivity() {
     private class CustomAdapter(nList: ArrayList<String>, tList : ArrayList<String>): BaseAdapter(){
 
         private val names = nList
-
         private var tipos = tList
 
 

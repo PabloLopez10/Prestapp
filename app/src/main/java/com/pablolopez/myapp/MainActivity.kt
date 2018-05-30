@@ -39,26 +39,6 @@ class MainActivity : AppCompatActivity() {
 
         )
 
-        /*val olvido:TextView = findViewById(R.id.Olvido)
-        olvido.setOnClickListener() {
-            val emailIntent = Intent(Intent.ACTION_SEND)
-
-            emailIntent.type = HTTP.PLAIN_TEXT_TYPE
-            emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("jon@example.com")) // recipients
-            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Email subject")
-            emailIntent.putExtra(Intent.EXTRA_TEXT, "Email message text")
-            emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("content://path/to/email/attachment"))
-
-        }*/
-
-        val registro : Button = findViewById(R.id.Registrarse)
-        registro.setOnClickListener {
-            val intent = Intent(this, Registro :: class.java)
-            intent.putExtra("Correos",usuarios)
-            intent.putExtra("Claves",contras)
-            startActivity(intent)
-        }
-
         ref.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError?) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -80,8 +60,20 @@ class MainActivity : AppCompatActivity() {
 
         })
 
+
+        val registro : Button = findViewById(R.id.Registrarse)
+        registro.setOnClickListener {
+            val intent = Intent(this, Registro :: class.java)
+            intent.putExtra("Correos",usuarios)
+            intent.putExtra("Claves",contras)
+            startActivity(intent)
+        }
+
+
+
         val botonInicio = findViewById<Button>(R.id.Inicio_sesion)
         botonInicio.setOnClickListener(){
+
             if(usuario.getText().toString() in usuarios && contra.getText().toString() in contras){
                 if(usuarios.indexOf(usuario.getText().toString()) == contras.indexOf(contra.getText().toString())){
                     val intent = Intent(this,Inicio::class.java)
