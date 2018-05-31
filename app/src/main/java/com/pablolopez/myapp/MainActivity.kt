@@ -69,7 +69,17 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val botonAyuda = findViewById<ImageButton>(R.id.buttonAyuda)
+        botonAyuda.setOnClickListener(){
+            val intent = Intent(this,Ayuda::class.java)
+            startActivity(intent)
+        }
 
+        val textAyuda = findViewById<TextView>(R.id.textViewAyuda)
+        textAyuda.setOnClickListener(){
+            val intent = Intent(this,Ayuda::class.java)
+            startActivity(intent)
+        }
 
         val botonInicio = findViewById<Button>(R.id.Inicio_sesion)
         botonInicio.setOnClickListener(){

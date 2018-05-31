@@ -17,8 +17,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Registro"
-            android:parentActivityName="com.pablolopez.myapp.MainActivity">
+        <activity
+            android:name=".Registro"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pablolopez.myapp.MainActivity" />
@@ -27,19 +28,70 @@
             android:name=".Inicio"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Notificacion"
-            android:parentActivityName="com.pablolopez.myapp.Inicio">
+        <activity
+            android:name=".Notificacion"
+            android:parentActivityName=".Inicio">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pablolopez.myapp.Inicio" />
         </activity>
-        <activity android:name=".NuevoPrestamo"
-            android:parentActivityName="com.pablolopez.myapp.Inicio">
+        <activity
+            android:name=".NuevoPrestamo"
+            android:parentActivityName=".Inicio">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pablolopez.myapp.Inicio" />
         </activity>
-        <activity android:name=".Verificar"></activity>
+        <activity android:name=".Verificar" />
+        <activity
+            android:name=".Ayuda"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pablolopez.myapp.MainActivity" />
+        </activity>
+        <activity
+            android:name=".AyudaRegistrarse"
+            android:parentActivityName=".Ayuda">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pablolopez.myapp.Ayuda" />
+        </activity>
+        <activity
+            android:name=".AyudaSesion"
+            android:parentActivityName=".Ayuda">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pablolopez.myapp.Ayuda" />
+        </activity>
+        <activity
+            android:name=".AyudaNuevo"
+            android:parentActivityName=".Ayuda">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pablolopez.myapp.Ayuda" />
+        </activity>
+        <activity
+            android:name=".AyudaVer"
+            android:parentActivityName=".Ayuda">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pablolopez.myapp.Ayuda" />
+        </activity>
+        <activity
+            android:name=".AyudaConfirmar"
+            android:parentActivityName=".Ayuda">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pablolopez.myapp.Ayuda" />
+        </activity>
+        <activity
+            android:name=".AyudaCerrar"
+            android:parentActivityName=".Ayuda">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pablolopez.myapp.Ayuda" />
+        </activity>
     </application>
 
 </manifest>

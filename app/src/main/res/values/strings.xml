@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">PRESTAPP</string>
+    <string name="ayudaRegistrarse">
+        El primer paso para utilizar la apliación es crear un usuario, por lo que
+        debes dirigirte al botón REGISTRARSE. Debes ingresar todos los datos solicitados,
+        recuerda que el número telefónico debe ser de 8 digitos.
+    </string>
+    <string name="Inicio">
+        Para iniciar sesión debes llenar los campos de ingreso y dar click en el botón INICIAR SESION, debes hacerlo con un correo registrado.
+    </string>
+    <string name="Nuevo">
+        En la vista principal de la aplicación puedes crear un nuevo prestamo dando click al boton
+        ubicado en la parte inferior izquierda de la pantalla con un simbolo `+´. Luego debes llenar todos los datos
+        solicitados para el nuevo prestamo. Para terminar da click en el botón aceptar.
+    </string>
+    <string name="Ver">
+        Puedes ingresar a tu prestamo para verlo, dentro de tu prestamo podras cambiar
+        el estado de activo a terminado.
+    </string>
+    <string name="Cerrar">
+        Para cerrar sesión debes presionar el botón que se encuentra en la parte inferior izquierda de la 
+        vista principal con una fleca roja de retorno. Se te hara una pregunta de confirmación. 
+    </string>
+    <string name="Confirmar">
+        Al terminar tu nuevo prestamo podras ver como se verá la información,
+        puedes aceptarlo o regresab a editarlo.
+    </string>
 </resources>
