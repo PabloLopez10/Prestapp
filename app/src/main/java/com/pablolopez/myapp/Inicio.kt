@@ -75,8 +75,11 @@ class Inicio() : AppCompatActivity() {
         fab2.setOnClickListener { view ->
             val builder = AlertDialog.Builder(this@Inicio)
 
+            builder.setCancelable(false)
+
             // Set the alert dialog title
             builder.setTitle("Cerrar Sesion")
+
 
             // Display a message on alert dialog
             builder.setMessage("¿Está seguro de cerrar sesión?")

@@ -50,6 +50,8 @@ class Registro : AppCompatActivity() {
                 if(validMail(editText4.getText().toString()) == false){
                     val builder = AlertDialog.Builder(this@Registro)
 
+                    builder.setCancelable(false)
+
                     // Set the alert dialog title
                     builder.setTitle("Registro")
 
@@ -70,6 +72,8 @@ class Registro : AppCompatActivity() {
                 else {
                     if(editText4.getText().toString() in usuarios){
                         val builder = AlertDialog.Builder(this@Registro)
+
+                        builder.setCancelable(false)
 
                         // Set the alert dialog title
                         builder.setTitle("Registro")
@@ -92,6 +96,8 @@ class Registro : AppCompatActivity() {
                         if(validNumber(editText5.getText().toString()) ==  false && editText5.text.toString().length == 8){
                             val builder = AlertDialog.Builder(this@Registro)
 
+                            builder.setCancelable(false)
+
                             // Set the alert dialog title
                             builder.setTitle("Registro")
 
@@ -113,6 +119,8 @@ class Registro : AppCompatActivity() {
                             if(editText6.getText().toString().length < 8){
                                 val builder = AlertDialog.Builder(this@Registro)
 
+                                builder.setCancelable(false)
+
                                 // Set the alert dialog title
                                 builder.setTitle("Registro")
 
@@ -133,6 +141,8 @@ class Registro : AppCompatActivity() {
                             else {
                                 if(editText7.getText().toString() != editText6.getText().toString()){
                                     val builder = AlertDialog.Builder(this@Registro)
+
+                                    builder.setCancelable(false)
 
                                     // Set the alert dialog title
                                     builder.setTitle("Registro")
@@ -163,6 +173,8 @@ class Registro : AppCompatActivity() {
             }
             else{
                 val builder = AlertDialog.Builder(this@Registro)
+
+                builder.setCancelable(false)
 
                 // Set the alert dialog title
                 builder.setTitle("Registro")

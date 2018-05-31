@@ -92,6 +92,8 @@ class MainActivity : AppCompatActivity() {
                 else{
                     val builder = AlertDialog.Builder(this@MainActivity)
 
+                    builder.setCancelable(false)
+
                     // Set the alert dialog title
                     builder.setTitle("Inicio Sesion")
 
@@ -112,6 +114,8 @@ class MainActivity : AppCompatActivity() {
             }
             else{
                 val builder = AlertDialog.Builder(this@MainActivity)
+
+                builder.setCancelable(false)
 
                 // Set the alert dialog title
                 builder.setTitle("Inicio Sesion")
