@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
@@ -72,8 +73,31 @@ class Inicio() : AppCompatActivity() {
         }
 
         fab2.setOnClickListener { view ->
-            val intent = Intent(this,MainActivity::class.java)
-            startActivity(intent)
+            val builder = AlertDialog.Builder(this@Inicio)
+
+            // Set the alert dialog title
+            builder.setTitle("Cerrar Sesion")
+
+            // Display a message on alert dialog
+            builder.setMessage("¿Está seguro de cerrar sesión?")
+
+            // Set a positive button and its click listener on alert dialog
+            builder.setPositiveButton("SI"){dialog, which ->
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+            }
+
+            // Display a negative button on alert dialog
+            builder.setNegativeButton("No"){dialog,which ->
+
+            }
+
+            // Finally, make the alert dialog using builder
+            val dialog: AlertDialog = builder.create()
+
+            // Display the alert dialog on app interface
+            dialog.show()
+
         }
 
         val lista_notificaciones = findViewById<ListView>(R.id.notificaciones)
