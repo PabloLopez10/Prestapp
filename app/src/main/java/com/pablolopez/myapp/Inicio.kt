@@ -26,6 +26,7 @@ class Inicio() : AppCompatActivity() {
     var listDescripcion = arrayListOf<String>()
     var listShort = arrayListOf<String>()
     var listEstados = arrayListOf<String>()
+    var listIds = arrayListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,10 +48,12 @@ class Inicio() : AppCompatActivity() {
                         val descr = h.getValue(Prestamo :: class.java)!!.descripcion
                         val notishow = h.getValue(Prestamo :: class.java)!!.short
                         val estado = h.getValue(Prestamo :: class.java)!!.estado
+                        val id = h.getValue(Prestamo :: class.java)!!.id
                         listPrestamo.add(nom)
                         listDescripcion.add(descr)
                         listShort.add(notishow)
                         listEstados.add(estado)
+                        listIds.add(id)
                         lista_notificaciones.adapter = Inicio.CustomAdapter(listShort,listPrestamo)
 
                     }
@@ -108,6 +111,9 @@ class Inicio() : AppCompatActivity() {
             intent.putExtra("Nombre","DESCRIPCION")
             intent.putExtra("Tipo", listDescripcion[i])
             intent.putExtra("Estado",listEstados[i])
+            intent.putExtra("Id",listIds[i])
+            intent.putExtra("Nombre2",listPrestamo[i])
+            intent.putExtra("Short",listShort[i])
             startActivity(intent)
         }
     }

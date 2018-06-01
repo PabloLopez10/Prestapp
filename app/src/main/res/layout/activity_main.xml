@@ -34,7 +34,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/text_field"
         android:ems="10"
-        android:hint="Correo o Teléfono"
+        android:hint="Correo"
         android:inputType="textEmailAddress"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
