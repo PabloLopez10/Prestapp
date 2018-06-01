@@ -30,6 +30,7 @@ import com.pablolopez.myapp.R.id.radioButton
 class NuevoPrestamo : AppCompatActivity() {
 
     val myCalendar = Calendar.getInstance()
+    val myCalendar2 = Calendar.getInstance()
 
     public var stringtoPass = String();
     public var notiShowtoPass = String();
@@ -64,7 +65,6 @@ class NuevoPrestamo : AppCompatActivity() {
         edittext.setOnClickListener(object : View.OnClickListener {
 
             override fun onClick(v: View) {
-                // TODO Auto-generated method stub
                 DatePickerDialog(this@NuevoPrestamo, date, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show()
@@ -74,20 +74,20 @@ class NuevoPrestamo : AppCompatActivity() {
         val edittext2 = findViewById<EditText>(R.id.textDateRecordatorio)
         val date2 = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
             // TODO Auto-generated method stub
-            myCalendar.set(Calendar.YEAR, year)
-            myCalendar.set(Calendar.MONTH, monthOfYear)
-            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+            myCalendar2.set(Calendar.YEAR, year)
+            myCalendar2.set(Calendar.MONTH, monthOfYear)
+            myCalendar2.set(Calendar.DAY_OF_MONTH, dayOfMonth)
             updateLabelRecordatorio()
         }
 
 
         edittext2.setOnClickListener(object : View.OnClickListener {
-        override fun onClick(v: View) {
+             override fun onClick(v: View) {
             // TODO Auto-generated method stub
-            DatePickerDialog(this@NuevoPrestamo, date, myCalendar
-                    .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-                    myCalendar.get(Calendar.DAY_OF_MONTH)).show()
-        }
+            DatePickerDialog(this@NuevoPrestamo, date2, myCalendar2
+                    .get(Calendar.YEAR), myCalendar2.get(Calendar.MONTH),
+                    myCalendar2.get(Calendar.DAY_OF_MONTH)).show()
+            }
         })
 
         toolbarNuevo.setTitle("PRESTAPP")
@@ -150,7 +150,7 @@ class NuevoPrestamo : AppCompatActivity() {
     private fun updateLabelRecordatorio() {
         val myFormat = "MM/dd/yy" //In which you need put here
         val sdf = SimpleDateFormat(myFormat, Locale.US)
-        textDateRecordatorio.setText(sdf.format(myCalendar.getTime()))    }
+        textDateRecordatorio.setText(sdf.format(myCalendar2.getTime()))    }
 }
 
 
