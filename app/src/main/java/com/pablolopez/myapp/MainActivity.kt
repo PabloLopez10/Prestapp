@@ -32,11 +32,11 @@ class MainActivity : AppCompatActivity() {
         val contra:EditText = findViewById(R.id.Contraseña)
 
         val usuarios = arrayListOf<String>(
-
+            //"pj9lopez@hotmail.com","l@hotmail.com","p@hotmail.com"
         )
 
         val contras = arrayListOf<String>(
-
+            //"123","456","789"
         )
 
         ref.addValueEventListener(object : ValueEventListener {
@@ -83,11 +83,34 @@ class MainActivity : AppCompatActivity() {
 
         val botonInicio = findViewById<Button>(R.id.Inicio_sesion)
         botonInicio.setOnClickListener(){
+            if(usuario.text.isNotEmpty() && contra.text.isNotEmpty()){
+                if(usuario.text.toString() in usuarios){
+                    if(usuarios.indexOf(usuario.getText().toString()) == contras.indexOf(contra.getText().toString())){
+                        val intent = Intent(this,Inicio::class.java)
+                        startActivity(intent)
+                    }
+                    else{
+                        val builder = AlertDialog.Builder(this@MainActivity)
 
-            if(usuario.getText().toString() in usuarios && contra.getText().toString() in contras){
-                if(usuarios.indexOf(usuario.getText().toString()) == contras.indexOf(contra.getText().toString())){
-                    val intent = Intent(this,Inicio::class.java)
-                    startActivity(intent)
+                        builder.setCancelable(false)
+
+                        // Set the alert dialog title
+                        builder.setTitle("Inicio Sesion")
+
+                        // Display a message on alert dialog
+                        builder.setMessage("Usuario o contraseña incorrectos")
+
+                        // Display a neutral button on alert dialog
+                        builder.setNeutralButton("Ok"){_,_ ->
+
+                        }
+
+                        // Finally, make the alert dialog using builder
+                        val dialog: AlertDialog = builder.create()
+
+                        // Display the alert dialog on app interface
+                        dialog.show()
+                    }
                 }
                 else{
                     val builder = AlertDialog.Builder(this@MainActivity)
@@ -98,7 +121,7 @@ class MainActivity : AppCompatActivity() {
                     builder.setTitle("Inicio Sesion")
 
                     // Display a message on alert dialog
-                    builder.setMessage("Usuario o contraseña incorrectos")
+                    builder.setMessage("El usuario no esta registrado")
 
                     // Display a neutral button on alert dialog
                     builder.setNeutralButton("Ok"){_,_ ->
@@ -121,7 +144,7 @@ class MainActivity : AppCompatActivity() {
                 builder.setTitle("Inicio Sesion")
 
                 // Display a message on alert dialog
-                builder.setMessage("Usuario o contraseña incorrectos")
+                builder.setMessage("No debe dejar campos vacios")
 
                 // Display a neutral button on alert dialog
                 builder.setNeutralButton("Ok"){_,_ ->
@@ -134,8 +157,6 @@ class MainActivity : AppCompatActivity() {
                 // Display the alert dialog on app interface
                 dialog.show()
             }
-
-
         }
 
     }
