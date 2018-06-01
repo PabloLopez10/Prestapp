@@ -50,7 +50,7 @@ class Notificacion : AppCompatActivity() {
             val prestamo = Prestamo(id,nombre,tipo,short,"Terminado")
             dbPrestamos.child(id).setValue(prestamo)
             txtEstado.setText("Terminado")
-            txtEstado.setTextColor(Color.WHITE)
+            txtEstado.setTextColor(Color.BLACK)
             botonTerminar.visibility = Button.INVISIBLE
 
         }
