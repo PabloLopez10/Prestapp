@@ -84,6 +84,7 @@ class MainActivity : AppCompatActivity() {
         val botonInicio = findViewById<Button>(R.id.Inicio_sesion)
         botonInicio.setOnClickListener(){
             if(usuario.text.isNotEmpty() && contra.text.isNotEmpty()){
+
                 if(usuario.text.toString() in usuarios){
                     if(usuarios.indexOf(usuario.getText().toString()) == contras.indexOf(contra.getText().toString())){
                         val intent = Intent(this,Inicio::class.java)

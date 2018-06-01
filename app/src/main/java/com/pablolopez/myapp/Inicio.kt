@@ -39,6 +39,7 @@ class Inicio() : AppCompatActivity() {
         setSupportActionBar(toolbarInicio)
 
         ref = FirebaseDatabase.getInstance().getReference("Prestamo")
+        val lista_notificaciones = findViewById<ListView>(R.id.notificaciones)
 
         ref.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError?) {
@@ -54,6 +55,8 @@ class Inicio() : AppCompatActivity() {
                         listPrestamo.add(nom)
                         listDescripcion.add(descr)
                         listShort.add(notishow)
+                        lista_notificaciones.adapter = Inicio.CustomAdapter(listShort,listPrestamo)
+
                     }
 
                 }
@@ -103,8 +106,6 @@ class Inicio() : AppCompatActivity() {
 
         }
 
-        val lista_notificaciones = findViewById<ListView>(R.id.notificaciones)
-        lista_notificaciones.adapter = Inicio.CustomAdapter(listDescripcion2,listPrestamo2)
 
         lista_notificaciones.setOnItemClickListener { adapterView, view, i, l ->
             val intent = Intent(this, Notificacion::class.java)
