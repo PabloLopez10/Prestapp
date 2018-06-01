@@ -24,7 +24,7 @@ class Notificacion : AppCompatActivity() {
         val descripcionNot = findViewById<TextView>(R.id.DescripcionNotificacion)
         val texto:String = intent.getStringExtra("Nombre")
 
-        val mostrarTipo = findViewById<EditText>(R.id.mostrarPrestamo)
+        val mostrarTipo = findViewById<TextView>(R.id.mostrarPrestamo)
         val texto2:String = intent.getStringExtra("Tipo")
 
         if(texto != null){

@@ -109,8 +109,8 @@ class Inicio() : AppCompatActivity() {
 
         lista_notificaciones.setOnItemClickListener { adapterView, view, i, l ->
             val intent = Intent(this, Notificacion::class.java)
-            intent.putExtra("Nombre",intent.getStringExtra("DESCRIPCION"))
-            intent.putExtra("Tipo",lista_notificaciones.getItemAtPosition(i).toString())
+            intent.putExtra("Nombre","DESCRIPCION")
+            intent.putExtra("Tipo", listDescripcion[i])
             startActivity(intent)
         }
     }
