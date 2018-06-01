@@ -22,16 +22,10 @@ class Inicio() : AppCompatActivity() {
 
     lateinit var ref: DatabaseReference
 
-    var listPrestamo2 = arrayListOf<String>(
-            "Deuda","Prestamo","Deuda"
-    )
-    var listDescripcion2 = arrayListOf<String>(
-            "123","456","789"
-    )
-
     var listPrestamo = arrayListOf<String>()
     var listDescripcion = arrayListOf<String>()
     var listShort = arrayListOf<String>()
+    var listEstados = arrayListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,9 +46,11 @@ class Inicio() : AppCompatActivity() {
                         val nom = h.getValue(Prestamo :: class.java)!!.nombre
                         val descr = h.getValue(Prestamo :: class.java)!!.descripcion
                         val notishow = h.getValue(Prestamo :: class.java)!!.short
+                        val estado = h.getValue(Prestamo :: class.java)!!.estado
                         listPrestamo.add(nom)
                         listDescripcion.add(descr)
                         listShort.add(notishow)
+                        listEstados.add(estado)
                         lista_notificaciones.adapter = Inicio.CustomAdapter(listShort,listPrestamo)
 
                     }
@@ -111,6 +107,7 @@ class Inicio() : AppCompatActivity() {
             val intent = Intent(this, Notificacion::class.java)
             intent.putExtra("Nombre","DESCRIPCION")
             intent.putExtra("Tipo", listDescripcion[i])
+            intent.putExtra("Estado",listEstados[i])
             startActivity(intent)
         }
     }

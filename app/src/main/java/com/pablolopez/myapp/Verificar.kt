@@ -50,7 +50,7 @@ class Verificar : AppCompatActivity() {
     private fun guardarPrestamo(pt:String,ct:String, noti:String) {
         val ref = FirebaseDatabase.getInstance().getReference("Prestamo")
         val prestamoId = ref.push().key
-        val prestamo = Prestamo(prestamoId, pt , ct, noti)
+        val prestamo = Prestamo(prestamoId, pt , ct, noti,"Terminado")
         ref.child(prestamoId).setValue(prestamo).addOnCompleteListener {
             Toast.makeText(applicationContext, "Prestamo creado con exito", Toast.LENGTH_LONG).show()
         }
